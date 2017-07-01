@@ -2,23 +2,9 @@ e_gamebook_chapters:
     resource: "@EGamebookBundle/Resources/config/routing/chapters.yml"
     prefix:   /chapters
 
-e_gamebook_books:
-    resource: "@EGamebookBundle/Resources/config/routing/book.yml"
-    prefix:   /books
-
-e_gamebook_profil:
-    resource: "@EGamebookBundle/Resources/config/routing/profil.yml"
-    prefix:   /profil
-
 e_gamebook_list:
     path:     /list
     defaults: { _controller: EGamebookBundle:View:listBooks }
-
-#e_gamebook_intro:
-#    path:     /intro
-##    {id}
-#    defaults: { _controller: EGamebookBundle:View:introBook }
-##    methods:  GET
 
 e_gamebook_read:
     path:     /read/{number}/{id}

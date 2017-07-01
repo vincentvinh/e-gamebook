@@ -13,22 +13,13 @@ class ViewController extends Controller
 
     public function listBooksAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $bookBestSeller =$em->getRepository('EGamebookBundle:Book')->getLastEntity();
-
-        $books = $em->getRepository('EGamebookBundle:Book')->findAll();
-        return $this->render('@EGamebook/nonUsers/index.html.twig', array(
-            'books' => $books,
-            'book' => $bookBestSeller
-        ));
+        return $this->render('@EGamebook/nonUsers/index.html.twig');
     }
-    public function introBookAction(Book $book)
+    public function introBookAction()
     {
 
 
-        return $this->render('@EGamebook/nonUsers/introBook.html.twig', array(
-            'book' => $book,
-        ));
+        return $this->render('@EGamebook/nonUsers/introBook.html.twig');
     }
 
 

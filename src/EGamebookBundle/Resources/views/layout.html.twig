@@ -1,56 +1,7 @@
 {% extends 'base.html.twig' %}
 
     {% block menu %}
-        {#<nav class="">#}
-            {#<div class="nav-wrapper grey text-darken-4">#}
-                {#<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>#}
-                {#<ul class="left hide-on-med-and-down">#}
 
-                    {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-                        {#<li><a href="{{ path('profil_index') }}">My profil</a></li>#}
-                        {#<li><a href="{{ path('book_index') }}">My books</a></li>#}
-                        {#<li><a href="{{ path('book_new') }}">Create a new book</a></li>#}
-
-
-                        {#<li><a href="{{ path('fos_user_security_logout') }}">#}
-                                {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-                            {#</a></li>#}
-                        {#<li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </li>#}
-                    {#{% else %}#}
-                        {#<li><a href="{{ path('book_new') }}">Create a new book</a></li>#}
-                        {#<li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>#}
-                    {#{% endif %}#}
-                    {#<li><a href="{{ path('AllBooks') }}">Search for books</a></li>#}
-                {#</ul>#}
-                {#<ul class="right hide-on-med-and-down">#}
-                    {#<li><a href="{{ path('e_gamebook_list' )}}">Home</a></li>#}
-                    {#<li><a href="{{ path('e_gamebook_story', { 'number': 1} ) }}">Start again</a></li>#}
-                    {#<li><a href="{{ path('e_gamebook_about') }}">About</a></li>#}
-                {#</ul>#}
-                {#<ul class="side-nav" id="mobile-demo">#}
-                    {#<li><a  href="{{ path('e_gamebook_intro')}}">Home</a></li>#}
-                    {#<li><a href="{{ path('profil_index') }}">My profil</a></li>#}
-                    {#<li><a href="{{ path('book_index') }}">My books</a></li>#}
-                    {#<li><a href="{{ path('book_new') }}">Create a new book</a></li>#}
-                    {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-
-                        {#<li><a href="{{ path('fos_user_security_logout') }}">#}
-                                {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-                            {#</a></li>#}
-                        {#<li>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </li>#}
-                    {#{% else %}#}
-                        {#<li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>#}
-                    {#{% endif %}#}
-                    {#<li><a href="{{ path('AllBooks') }}">Search for books</a></li>#}
-                    {#<li><a href="{{ path('e_gamebook_story', { 'number': 1 } ) }}">Start again</a></li>#}
-                    {#<li><a href="{{ path('e_gamebook_about') }}">About</a></li>#}
-                {#</ul>#}
-                {#<ul>#}
-                    {#<li>Playbook</li>#}
-                {#</ul>#}
-
-            {#</div>#}
-        {#</nav>#}
     {% endblock %}
 
 {% block body %}
