@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends '@EGamebook/layout.html.twig' %}
 
 {% block body %}
 
@@ -8,10 +8,10 @@
             <a href="{{ path('e_gamebook_read', {'number': 1 , 'id': book.id}) }}">
 
 
-                {% if book.fichier is null %}
+                {% if book.fichiers is empty %}
                     <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
                 {% else %}
-                    <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier.src ) }}">
+                    <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichiers.srcs[0] ) }}">
                 {% endif %} <a/>
         </div>
 

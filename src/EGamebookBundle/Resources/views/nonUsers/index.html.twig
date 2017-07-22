@@ -8,10 +8,10 @@
         <div class="row">
             <div class="row-full">
                 <a href="{{ path('e_gamebook_intro', {'id': book.id }) }}">
-                    {% if book.fichiers is null %}
-                        <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
+                    {% if book.fichiers.srcs is empty %}
+                        <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/5973a860478c0.jpeg') }}">
                     {% else %}
-                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichier ) }}">
+                                <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichiers.srcs[0]) }}">
                     {% endif %}
                 </a>
             </div>
@@ -23,12 +23,11 @@
             <div class="carousel carousel-slider center-align">
                 {% for bookcar in books %}
                     <a class="carousel-item" href="{{ path('e_gamebook_intro', {'id':bookcar.id}) }}">
-                        {% if bookcar.fichier is null %}
-                            <img class="responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png' ) }}">
+                        {% if bookcar.fichiers.srcs is empty %}
+                            <img class="responsive-img" src="{{ asset('bundles/platform/img/5973a860478c0.jpeg' ) }}">
                         {% else %}
-                            <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ bookcar.fichier.src ) }}">
+                            <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ bookcar.fichiers.srcs[0] ) }}">
                         {% endif %}
-                        <img class="star responsive-img" src="{{ asset('bundles/platform/img/stars_1.png') }}">
                     </a>
                 {% endfor %}
             </div>

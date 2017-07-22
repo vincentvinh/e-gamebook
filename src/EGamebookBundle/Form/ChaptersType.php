@@ -25,7 +25,7 @@ class ChaptersType extends AbstractType
            // !! FileType->http://symfony.com/doc/current/reference/forms/types/file.html
             ->add('decision', TextareaType::class)
             ->add('buttonText', TextType::class)
-            ->add('fichier', FichierType::class )
+            ->add('fichiers', FichierType::class)
            ->getForm();
     }
     

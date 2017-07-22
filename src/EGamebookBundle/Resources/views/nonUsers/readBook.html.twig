@@ -15,13 +15,15 @@
                          <div class="content_W">
                    {{ chapter.content }}
                          </div>
-                        {% endif %}
+                     {% endif %}
                      {{ chapter.decision }}
 
-                     {% if chapter.fichier is null %}
-                         <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
+                     {% if chapter.fichiers is empty %}
+                         <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/5973a860478c0.jpeg') }}">
                         {% else %}
-                         <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ chapter.fichier.src ) }}">
+                         {% for photos in chapter.fichiers.srcs %}
+                             <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ photos ) }}">
+                         {% endfor %}
                      {% endif %}
                  </span>
 
@@ -29,7 +31,7 @@
                 {% for chap in chapter.childs %}
                     <div class="wrap">
                         <a href="{{ path('e_gamebook_read', { 'number': chap.number, 'id': idB } ) }}"  class="button">
-                        <span>{{ chap.buttonText }}</span></a><br>
+                            <span>{{ chap.buttonText }}</span></a><br>
                     </div>
 
                 {% endfor %}

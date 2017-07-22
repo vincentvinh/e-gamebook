@@ -22,7 +22,7 @@ class Fichier
      */
     public function setSrcs($src)
     {
-        foreach ($src as $url){
+         foreach ($src as $url){
             array_push($this->srcs, $url);
         }
         return $this;

@@ -5,70 +5,66 @@
     <div class="container">
         <div class="row">
             <div class="card-panel">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Editor</th>
+                        <th>Year</th>
+                        <th>Isbn</th>
+                        <th>images</th>
 
-
-
-
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Editor</th>
-                <th>Year</th>
-                <th>Isbn</th>
-                <th>images</th>
-
-                <th>Chapters</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-                <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.title }}</a></td>
-                <td>{{ book.author }}</td>
-                <td>{{ book.editor }}</td>
-                <td>{{ book.year }}</td>
-                <td>{{ book.isbn }}</td>
-                <td>{% if book.fichiers.srcs is empty %}
-                    {% else %}
-                    {% for fichier in book.fichiers.srcs %}
-                       {% if fichier is not defined %}
-                    {% else %}
-                        {{ fichier }}
-                        {% endif%}
-                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ fichier) }}">
+                        <th>Chapters</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.title }}</a></td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.editor }}</td>
+                            <td>{{ book.year }}</td>
+                            <td>{{ book.isbn }}</td>
+                            <td>{% if book.fichiers.srcs is empty %}
+                                {% else %}
+                                    {% for fichier in book.fichiers.srcs %}
+                                        {% if fichier is not defined %}
+                                        {% else %}
+                                            {{ fichier }}
+                                        {% endif%}
+                                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ fichier) }}">
+                                    {% endfor %}
+                                {% endif %}
+                            </td>
+                            <td>{% for chapter in book.chapters %}
+                                    <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a>
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('book_show', { 'id': book.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('book_edit', { 'id': book.id }) }}">edit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('chapters_new', { 'id': book.id }) }}">Make a Chapter</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
                     {% endfor %}
-                    {% endif %}
-                </td>
-                <td>{% for chapter in book.chapters %}
-                    <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a>
-                    {% endfor %}
-                </td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('book_show', { 'id': book.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('book_edit', { 'id': book.id }) }}">edit</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('chapters_new', { 'id': book.id }) }}">Make a Chapter</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('book_new') }}">Create a new book</a>
-        </li>
-    </ul>
+                <ul>
+                    <li>
+                        <a href="{{ path('book_new') }}">Create a new book</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

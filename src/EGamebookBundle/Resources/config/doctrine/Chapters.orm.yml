@@ -26,10 +26,9 @@ EGamebookBundle\Entity\Chapters:
             inversedBy: chapters
             cascade: ["persist"]
 
-    oneToOne:
-        fichier:
+        fichiers:
             targetEntity: EGamebookBundle\Entity\Fichier
-            cascade: ['all']
+            cascade: ["persist", "remove"]
 
 
     manyToMany:
