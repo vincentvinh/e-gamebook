@@ -4,68 +4,30 @@
     <h1 class="center">Books list</h1>
     <div class="container">
         <div class="row">
-            <div class="card-panel">
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Editor</th>
-                        <th>Year</th>
-                        <th>Isbn</th>
-                        <th>images</th>
+            {% for book in books %}
+                <a href="{{ path('book_show', { 'id': book.id }) }}">
+                    <div class="col s12 m6 l3 card-panel book">
 
-                        <th>Chapters</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for book in books %}
-                        <tr>
-                            <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.title }}</a></td>
-                            <td>{{ book.author }}</td>
-                            <td>{{ book.editor }}</td>
-                            <td>{{ book.year }}</td>
-                            <td>{{ book.isbn }}</td>
-                            <td>{% if book.fichiers.srcs is empty %}
-                                {% else %}
-                                    {% for fichier in book.fichiers.srcs %}
-                                        {% if fichier is not defined %}
-                                        {% else %}
-                                            {{ fichier }}
-                                        {% endif%}
-                                        <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ fichier) }}">
-                                    {% endfor %}
-                                {% endif %}
-                            </td>
-                            <td>{% for chapter in book.chapters %}
-                                    <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a>
-                                {% endfor %}
-                            </td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('book_show', { 'id': book.id }) }}">show</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('book_edit', { 'id': book.id }) }}">edit</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ path('chapters_new', { 'id': book.id }) }}">Make a Chapter</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
 
-                <ul>
-                    <li>
-                        <a href="{{ path('book_new') }}">Create a new book</a>
-                    </li>
-                </ul>
-            </div>
+                        <h5 class="center">{{ book.title }}</h5>
+                        <h6 class="center">{{ book.author }}</h6>
+
+                        {% if book.fichiers.srcs is empty %}
+                            <img class="responsive-img" src="{{ asset('bundles/platform/img/5973a860478c0.jpeg' )}}">
+                        {% else %}
+                            <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichiers.srcs[0]) }}">
+                        {% endif %}
+
+                        <a class="btn" href="{{ path('book_show', { 'id': book.id }) }}">show  </a>
+                {#</a><i class="material-icons right">add</i>#}
+
+                        <a class="btn" href="{{ path('book_edit', { 'id': book.id }) }}">edit</a>
+
+
+                    </div>
+                </a>
+            {% endfor %}
         </div>
     </div>
+
 {% endblock %}

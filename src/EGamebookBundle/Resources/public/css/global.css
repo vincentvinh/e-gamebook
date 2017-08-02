@@ -7,6 +7,19 @@
     font-family: 'Roboto', sans-serif !important;
 }
 
+.book
+{
+    height: 310px;
+}
+.book img
+{
+    height: 150px;
+}
+.book:hover
+{
+    border: 2px solid black;
+}
+
 /*Page Caroussel*/
 .row-full{
     width: 107%;

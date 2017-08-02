@@ -7,9 +7,8 @@
         <div class="row-full">
             <a href="{{ path('e_gamebook_read', {'number': 1 , 'id': book.id}) }}">
 
-
-                {% if book.fichiers is empty %}
-                    <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/Screenshot at 2017-06-22 18_56_54.png') }}">
+                {% if book.fichiers.srcs is empty %}
+                    <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/5973a860478c0.jpeg') }}">
                 {% else %}
                     <img class="responsive-img" src="{{ asset('bundles/platform/img/' ~ book.fichiers.srcs[0] ) }}">
                 {% endif %} <a/>

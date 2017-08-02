@@ -11,6 +11,8 @@ EGamebookBundle\Entity\Chapters:
     fields:
         number:
             type: integer
+        title:
+            type: string
         content:
             type: text
         decision:
