@@ -3,6 +3,7 @@
 namespace EGamebookBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,7 +16,13 @@ class UserType extends AbstractType
     {
         $builder->add('firstname')
             ->add('lastname')
-            ->add('gender')
+            ->add('gender', ChoiceType::class, array(
+                'choices' => array(
+                    'men' => 'M',
+                    'woman' => 'W',
+                    'between' => null,
+                ),
+            ))
             ->add('fichier');
     }
     

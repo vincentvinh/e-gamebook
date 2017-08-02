@@ -2,58 +2,58 @@
 
 {% block body %}
     <h1 class="center">Chapters list</h1>
-<div class="container">
-    <div class="row">
-        <div class="card-panel">
-        
-    <table class="responsive-table">
-        <thead>
-            <tr>
-                <th>Number</th>
-                <th>Content</th>
+    <div class="container">
+        <div class="row">
+            <div class="card-panel">
 
-                <th>Decision</th>
-                <th>Button Text</th>
-                <th>Child Chapter(s)</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for chapter in chapters %}
-            <tr>
-                <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a></td>
-                <td>{{ chapter.content }}</td>
+                <table class="responsive-table">
+                    <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Content</th>
 
-                <td>{{ chapter.decision }}</td>
-                <td>{{ chapter.buttonText }}</td>
-                <td>
-                    {% for child in chapter.childs %}
-                        {{ child.number }} /
+                        <th>Decision</th>
+                        <th>Button Text</th>
+                        <th>Child Chapter(s)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for chapter in chapters %}
+                        <tr>
+                            <td><a href="{{ path('chapters_show', { 'id': chapter.id }) }}">{{ chapter.number }}</a></td>
+                            <td>{{ chapter.content }}</td>
+
+                            <td>{{ chapter.decision }}</td>
+                            <td>{{ chapter.buttonText }}</td>
+                            <td>
+                                {% for child in chapter.childs %}
+                                    {{ child.number }} /
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">show</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('chapters_relations', { 'id': chapter.id }) }}">new relations</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
                     {% endfor %}
-                </td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('chapters_show', { 'id': chapter.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('chapters_edit', { 'id': chapter.id }) }}">edit</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('chapters_relations', { 'id': chapter.id }) }}">new relations</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                    </tbody>
+                </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('chapters_new') }}">Create a new chapter</a>
-        </li>
-    </ul>
+                <ul>
+                    <li>
+                        <a href="{{ path('chapters_new') }}">Create a new chapter</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

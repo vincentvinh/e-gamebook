@@ -25,8 +25,6 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
                                          'woman' => 'W',
                                          'between' => null,
                                      ),
-
-
                                  ))
                  ->add('firstname')
                  ->add('lastname')

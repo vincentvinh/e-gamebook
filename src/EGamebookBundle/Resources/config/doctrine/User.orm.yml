@@ -22,10 +22,10 @@ EGamebookBundle\Entity\User:
 
     lifecycleCallbacks: {  }
 
-    oneToOne:
+    manyToOne:
         fichier:
             targetEntity: EGamebookBundle\Entity\Fichier
-            cascade: ['all']
+            cascade: ['persist']
 
     oneToMany:
         books:

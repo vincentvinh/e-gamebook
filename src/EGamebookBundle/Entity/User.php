@@ -142,6 +142,8 @@ class User extends BaseUser
     {
         return $this->gender;
     }
+   
+
     /**
      * @var \EGamebookBundle\Entity\Fichier
      */
