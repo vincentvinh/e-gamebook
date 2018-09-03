@@ -89,6 +89,7 @@ class BookController extends Controller
     public function editAction(Request $request, Book $book)
     {
         $deleteForm = $this->createDeleteForm($book);
+
         $editForm = $this->createForm('EGamebookBundle\Form\BookType', $book);
         $editForm->handleRequest($request);
 
