@@ -1,6 +1,8 @@
 {% extends '@EGamebook/layout.html.twig' %}
 {% block body %}
-    {{ dump(app.user.id) }}
+    {{ app.user.firstname }}
+    {{ app.user.lastname }}
+    {{ app.user.gender }}
 
 
 {% endblock %}

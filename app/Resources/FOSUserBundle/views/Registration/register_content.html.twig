@@ -1,8 +1,37 @@
-{% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col s3">
+            </div>
+            <div class="col s6">
+                <title> REGISTER </title>
+                {% trans_default_domain 'FOSUserBundle' %}
+
+                {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+                {{ form_widget(form) }}
+                <div class="row">
+                    <div class="s12">
+                    <input type="submit" value="{{ 'registration.submit'|trans }}" />
+                    </div>
+                    <div class="s12">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                        <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                        </a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                    {% endif %}
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+            <div class="col s3">
+
+            </div>
+        </div>
     </div>
-{{ form_end(form) }}
+

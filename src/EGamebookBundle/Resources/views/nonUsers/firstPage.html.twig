@@ -1,0 +1,25 @@
+{% extends '@EGamebook/layout.html.twig' %}
+
+
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="col s12 center">
+                <a href="{{ path('e_gamebook_list') }}">
+
+                        <img class="photohaut responsive-img" src="{{ asset('bundles/platform/img/5973a860478c0.jpeg') }}">
+
+                </a></div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+
+{% endblock %}
